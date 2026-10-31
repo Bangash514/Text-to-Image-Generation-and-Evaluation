@@ -1,8 +1,6 @@
 # Text-to-Image-Generation-and-Evaluation
-Visual Programming for Text-to-Image Generation and Evaluation
-# Text-to-Image-Generation-and-Evaluation
 
-> **Status: work in progress.** This repository currently contains only this README. There is no code and there are no results yet.
+> **Status: work in progress.** The generation and evaluation script is written but has not been run yet, so there are no results to report.
 
 ## Goal
 A learning project on text-to-image generation and how to evaluate it. It is based on the ideas in the paper below, which proposes generating images step by step with a program-like plan and evaluating them with interpretable checks (objects, counts, spatial relations) instead of a single score.
@@ -17,19 +15,26 @@ Planned work:
 
 This repository is an independent learning project. It is not the authors' code and is not affiliated with them.
 
+## Quick start
+```bash
+pip install -r requirements.txt
+python src/generate_and_evaluate.py
+```
+Run from the project root on a GPU machine such as Google Colab (T4). It writes images to `results/images/`, per-prompt scores to `results/scores.csv` and a summary to `results/summary.txt`. The CLIP score here is the cosine similarity between image and prompt embeddings, multiplied by 100.
+
 ## Planned structure
 ```
-src/        generation and evaluation scripts
-prompts/    fixed prompt list
-results/    metrics table and example images
+src/generate_and_evaluate.py   generation + CLIP scoring
+prompts/prompts.txt            fixed prompt list (10 prompts)
+results/                       scores and example images (after a run)
 README.md
 requirements.txt
 ```
 
 ## Progress
-- [ ] Choose model and prompt set
-- [ ] Generation script
-- [ ] CLIP-score evaluation
+- [x] Choose model (`stabilityai/sd-turbo`) and prompt set
+- [x] Generation and CLIP-score script written (not yet run on real models)
+- [ ] Run it and record results
 - [ ] Object/count checks
 - [ ] Results and limitations
 
